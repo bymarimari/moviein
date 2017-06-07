@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie.in</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link rel="stylesheet" href="css/estilo.css">
+    </head>
+    
+    <body>
+        <nav class="white">
+            <div class="nav-wrapper">
+
+                <a href="index.html" class="imglogo"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="search-btn bar"><a href="#"><i class="large material-icons">search</i></a></li>
+                    <li class="search-input"><input type="text" name="" placeholder="Buscar filmes" /></li>
+                    <li class="bar"><a href="index.html">Home</a></li>
+                    <li class="bar"><a href="sobre.html">Sobre</a></li>
+                    <li class="bar"><a href="bancofilmes.html">Banco de Filmes</a></li>
+                    <li class="bar"><a href="curiosidades.html">Curiosidades</a></li>
+                    <li class="bar"><a href="contato.html">Contato</a></li>
+                    <a class="waves-effect waves-light btn red darken-4" href="#modalLogin">Login</a>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="carousel carousel-slider">
+                <a class="carousel-item" href="#one!"><img src="img/cinema.jpg"></a>
+                <a class="carousel-item" href="#two!"><img src="img/netflix.jpg"></a>
+            </div>
+        </main>
+        
+        <footer class="page-footer grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5>Movie.in</h5>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5>Links</h5>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="bancofilmes.html">Banco de Filmes</a></li>
+                            <li><a href="curiosidades.html">Curiosidades</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Movie.in © 2017 Todos os direitos reservados.
+                </div>
+            </div>
+        </footer>
+        
+        <div id="modalLogin" class="modal">
+            <form id="login" method="post" action="http://url.com/acao">
+                <div class="modal-content">
+                    <h4>Logar no sistema</h4>
+                    <br>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="email" name="email" maxlength="70" value="exemplo@email.com" required>
+                                <label for="email">E-mail</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="password" name="senha" maxlength="70" value="123456" required>
+                                <label for="senha">Senha</label>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="modal-action btn-flat">Logar</button>
+                    <a href="#!" class="modal-action modal-close btn-flat">Cancelar</a>
+                </div>
+            </form>
+        </div>
+
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $('.search-input').hide();
+            $(document).ready(function(){ 
+                
+                $('.search-btn').on('click', function(){
+                    $('.search-btn').hide();
+                    $('.search-input').show(500);
+                });
+                
+                // $('.waves-effect').on('click', function(){
+                //     $('.search-btn').show();
+                //     $('.search-input').hide(500);
+                // });
+                $('.carousel.carousel-slider').carousel({fullWidth: true});
+                
+                $('.modal').modal();
+
+                $('form#login').on('submit', function(e){
+                    e.preventDefault();
+
+                    $.ajax({
+                        url: 'http://url.com/controller/metodo',
+                        type: 'post',
+                        data: {email: 'ju@ju.ju', senha: 'ju123'},
+                        dataType: 'json',
+                        success: function(data){
+                            //{status: ok, mensagem: logado com sucesso}
+                            alert(data.mensagem);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
