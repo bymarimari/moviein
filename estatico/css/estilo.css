@@ -13,18 +13,26 @@
 .sanduiche {
     color: #b71c1c;
 }
-.filme {
-    margin-bottom: 10px;
-}
-.filme img {
-    width: 100%;
-    filter: brightness(70%);
-    transition: 0.5s;
-}
-.filme img:hover {
-    filter: brightness(100%);
-}
 
-.sanduiche {
-    color: #b71c1c;
+.sobre {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+}
+.sobre .sobre-imagem {
+    /*background-color: blue;*/
+    text-align: center;
+}
+.sobre .sobre-imagem img {
+    width: 200px;
+}
+.noticia {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+}
+.noticia .noticia-imagem {
+    /*background-color: blue;*/
+    text-align: center;
+}
+.noticia .noticia-imagem img {
+    width: 200px;
 }
