@@ -1,3 +1,23 @@
+
+
+.carousel-slider {
+    height: 495px !important;
+}
+
+.carousel-slider
+
+.carousel-item {
+    height: 500px; 
+}
+
+.imglogo {
+     content: url('../img/logomoviein.png');
+     margin-top: 8px;
+     height: 48px;
+     width: 146px;
+}
+
+
 .noticia {
     padding: 10px;
     background-color: rgba(0,0,0,0.4);
