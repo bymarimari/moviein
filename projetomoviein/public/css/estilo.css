@@ -1,0 +1,13 @@
+.noticia {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+}
+.noticia .noticia-imagem {
+    /*background-color: blue;*/
+    text-align: center;
+    margin-top: 22px;
+    
+}
+.noticia .noticia-imagem img {
+    width: 200px;
+}
