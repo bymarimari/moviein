@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['curiosidades'] = 'Curiosidades/index';
 $route['curiosidades/get'] = 'Curiosidades/get';
+
+
+$route['bancodefilmes'] = 'BancoDeFilmes/index';
+$route['bancodefilmes/get'] = 'BancoDeFilmes/get';
