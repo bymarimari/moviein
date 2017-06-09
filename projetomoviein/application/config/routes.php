@@ -63,3 +63,6 @@ $route['usuario/inserir'] = 'Usuario/inserir';
 
 $route['bancodefilmes'] = 'BancoDeFilmes/index';
 $route['bancodefilmes/get'] = 'BancoDeFilmes/get';
+
+$route['meusfilmes'] = 'MeusFilmes/index';
+$route['meusfilmes/excluir'] = 'MeusFilmes/excluir';

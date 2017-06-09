@@ -30,4 +30,22 @@ class MeusFilmes extends CI_Controller {
 		} else {
 			header('location: '.base_url());
 		}
+
+	}	
+
+		public function excluir()
+	{
+		if ($this->session->has_userdata('usuario')) {
+
+			$this->load->model('Filmes_model');
+			
+			if ($this->Filmes_model->excluir_assiste($this->input->post('id'))) {
+				echo json_encode(array('tipo' => 'ok', 'mensagem' => 'Excluído com sucesso!'));
+			} else {
+				echo json_encode(array('tipo' => 'fail', 'mensagem' => 'Houve algum erro ao excluir este filme.'));
+			}
+		} else {
+			echo json_encode(array('tipo' => 'fail', 'mensagem' => 'Você precisa estar logado para realizar esta ação! :P'));
+		}
 	}
+}
