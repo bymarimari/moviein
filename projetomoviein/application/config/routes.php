@@ -49,23 +49,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
 
 $route['curiosidades'] = 'Curiosidades/index';
 $route['curiosidades/get'] = 'Curiosidades/get';
 $route['curiosidades/inserir'] = 'Curiosidades/inserir';
 $route['curiosidades/excluir'] = 'Curiosidades/excluir';
 $route['curiosidades/adicionar'] = 'Curiosidades/adicionar';
+<<<<<<< HEAD
+=======
+
+$route['bancodefilmes'] = 'BancoDeFilmes/index';
+$route['bancodefilmes/get'] = 'BancoDeFilmes/get';
+$route['bancodefilmes/inserir'] = 'BancoDeFilmes/inserir';
+$route['bancodefilmes/excluir'] = 'BancoDeFilmes/excluir';
+$route['bancodefilmes/adicionar'] = 'BancoDeFilmes/adicionar';
+>>>>>>> fce74b57adcc61b7aabe468d5c10b09a7bd9527e
 
 $route['usuario/login'] = 'Usuario/login';
 $route['usuario/logout'] = 'Usuario/logout';
 $route['usuario/inserir'] = 'Usuario/inserir';
-
-$route['bancodefilmes'] = 'BancoDeFilmes/index';
-$route['bancodefilmes/get'] = 'BancoDeFilmes/get';
 
 $route['meusfilmes'] = 'MeusFilmes/index';
 $route['meusfilmes/excluir'] = 'MeusFilmes/excluir';
