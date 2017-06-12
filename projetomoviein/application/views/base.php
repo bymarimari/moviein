@@ -132,6 +132,30 @@
              
                 $('.modal').modal();
                 $(".dropdown-button").dropdown();
+                
+                <?php if(empty($this->session->has_userdata('usuario'))) { ?>
+                    $('form#login').on('submit', function(e){
+                        e.preventDefault();
+                        
+                        var action = $(this).attr('action');
+                        var email = $('#login input[name=email]').val();
+                        var senha = $('#login input[name=senha]').val();
+                        
+                        $.ajax({
+                            url: action,
+                            type: 'post',
+                            data: {email: email, senha: senha},
+                            dataType: 'json',
+                            success: function(data){
+                                alert(data.mensagem);
+                                
+                                if (data.tipo == 'ok') {
+                                    window.location = "<?= base_url().'bancodefilmes'; ?>";
+                                }
+                            }
+                        });
+                    });
+                <?php } ?>
         </script>
     </body>
 </html>
