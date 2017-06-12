@@ -6,6 +6,18 @@ class Filmes_model extends CI_Model{
         return $this->db->get('filme')->result();
     }
     
+    public function get($id){
+        return $this->db->get_where('filme', array('id_filme' => $id))->row();
+    }
+    
+    public function excluir_assiste($id){
+        $filme = $this->get($id);
+        $usuario = $this->session->userdata('usuario');
+    	$usuario = $this->db->get_where('usuario', array('email' => $usuario['email']))->row();
+        if (!empty($filme) && !empty($usuario)) {
+           return $this->db->delete('assiste', array('id_filme' => $filme->id_filme, 'id_usuario' => $usuario->id_usuario));
+        }
+    }
     public function listar_assiste(){
     	$usuario = $this->session->userdata('usuario');
     	$usuario = $this->db->get_where('usuario', array('email' => $usuario['email']))->row();
@@ -20,19 +32,7 @@ class Filmes_model extends CI_Model{
     	return $assistes;
     }
     
-    public function excluir_assiste($id){
-        $filme = $this->get($id);
-        $usuario = $this->session->userdata('usuario');
-    	$usuario = $this->db->get_where('usuario', array('email' => $usuario['email']))->row();
-        if (!empty($filme) && !empty($usuario)) {
-           return $this->db->delete('assiste', array('id_filme' => $filme->id_filme, 'id_usuario' => $usuario->id_usuario));
-        }
-    }
     
-    
-    public function get($id){
-        return $this->db->get_where('filme', array('id_filme' => $id))->row();
-    }
     
     public function inserir($dados, $imagem){
 		$this->load->library('form_validation');

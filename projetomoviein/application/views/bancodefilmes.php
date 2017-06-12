@@ -68,9 +68,6 @@
         
         
         
-        
-        
-        
         <!-- Modal Structure -->
         <div id="modal_filme" class="modal">
             <div class="modal-content ">
