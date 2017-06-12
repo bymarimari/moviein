@@ -60,14 +60,20 @@ $route['curiosidades/inserir'] = 'Curiosidades/inserir';
 $route['curiosidades/excluir'] = 'Curiosidades/excluir';
 $route['curiosidades/adicionar'] = 'Curiosidades/adicionar';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c5d761d653076541c430941e561ba033948762c3
 
 $route['bancodefilmes'] = 'BancoDeFilmes/index';
 $route['bancodefilmes/get'] = 'BancoDeFilmes/get';
 $route['bancodefilmes/inserir'] = 'BancoDeFilmes/inserir';
 $route['bancodefilmes/excluir'] = 'BancoDeFilmes/excluir';
 $route['bancodefilmes/adicionar'] = 'BancoDeFilmes/adicionar';
+<<<<<<< HEAD
 >>>>>>> fce74b57adcc61b7aabe468d5c10b09a7bd9527e
+=======
+>>>>>>> c5d761d653076541c430941e561ba033948762c3
 
 $route['usuario/login'] = 'Usuario/login';
 $route['usuario/logout'] = 'Usuario/logout';
