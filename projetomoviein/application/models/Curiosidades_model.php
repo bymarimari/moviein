@@ -52,24 +52,21 @@ class Curiosidades_model extends CI_Model{
     
     
     
-    public function update($dados){
-        
+  public function get($id){
+         $this->CuriosidadesDAO->find($id);
+         return $this->CuriosidadesDAO->get();
     }
+    
     public function listar(){
-        return $this->db->get('curiosidade')->result();
+        return $this->CuriosidadesDAO->listar();
         
     }
- 
-    
-    public function get($id){
-        return $this->db->get_where('curiosidade', array('id_curiosidade' => $id))->row();
-    }
-    
+   
     public function excluir($id){
         $curiosidade = $this->get($id);
         if (!empty($curiosidade)) {
+            return $this->CuriosidadesDAO->deletar();
             unlink(FCPATH.'public/img/curiosidades/'.$curiosidade->imagem);
-            return $this->db->delete('curiosidade', array('id_curiosidade' => $curiosidade->id_curiosidade));
         }
     }
     
