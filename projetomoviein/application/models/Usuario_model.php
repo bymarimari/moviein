@@ -10,8 +10,8 @@ class Usuario_model extends CI_Model{
         $this->form_validation->set_rules('senha','Senha','min_length[6]|max_length[15]');
         
         if($this->form_validation->run()){
-            $this->db->set($dados);
-            if ($this->db->insert('usuario')){
+            $this->UsuarioDAO->set($dados);
+            if ($this->UsuarioDAO->salvar()){
                 return array('tipo' => 'ok', 'mensagem' => 'Você agora faz parte do movie.in');
             } else {
                 return array('tipo' => 'fail', 'mensagem' => 'Houve algum erro ao tentar criar cadastro...');
@@ -20,7 +20,6 @@ class Usuario_model extends CI_Model{
             return array('tipo' => 'fail', 'mensagem' => $this->form_validation->error_string('',''));
         }
     }
-
     public function get($id){
          return $this->db->get_where('usuario', array('id_usuario' => $id))->row();
     }
