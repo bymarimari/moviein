@@ -3,25 +3,19 @@
 class Curiosidades_model extends CI_Model{
     private $nome;
     
+     public function __construct(){
+        $this->load->model('CuriosidadesDAO');
+    }
+    
+    
     //$this->db->get_where('tabela', array('coluna' => $valor))->result();
     //result() = retorna varios, row() = retorna um
     
- 
-    public function listar(){
-        return $this->db->get('curiosidade')->result();
-        
-    }
-    
-    public function get($id){
-        return $this->db->get_where('curiosidade', array('id_curiosidade' => $id))->row();
-    }
-	public function inserir($dados, $imagem){
+    public function inserir($dados, $imagem){
 		$this->load->library('form_validation');
-		
 		$this->form_validation->set_rules('titulo', 'Título', 'max_length[70]');
-
-		if ($this->form_validation->run()) {
-		    
+		
+			
 		    if (!empty($imagem)) {
 		        $this->load->library('upload');
 		        $config = array();
@@ -37,9 +31,10 @@ class Curiosidades_model extends CI_Model{
 		            
     				$this->load->library('image_moo');
     			    $this->image_moo->load($config['upload_path'].$dados['imagem'])->resize_crop(190,280)->set_jpeg_quality(100)->save_pa('', '', TRUE);
-        		    $this->db->set($dados);
         		    
-        		    if ($this->db->insert('curiosidade')) {
+        		    if ($this->form_validation->run()) {
+        		    $this->CuriosidadesDAO->set($dados);
+        		    if ($this->CuriosidadesDAO->salvar()) {
 		                return array('tipo' => 'ok', 'mensagem' => 'Inserida com sucesso!');
         		    } else {
         		        return array('tipo' => 'fail', 'mensagem' => 'Houve um erro ao salvar os dados');
@@ -55,8 +50,19 @@ class Curiosidades_model extends CI_Model{
 		}
     }
     
+    
+    
     public function update($dados){
         
+    }
+    public function listar(){
+        return $this->db->get('curiosidade')->result();
+        
+    }
+ 
+    
+    public function get($id){
+        return $this->db->get_where('curiosidade', array('id_curiosidade' => $id))->row();
     }
     
     public function excluir($id){
