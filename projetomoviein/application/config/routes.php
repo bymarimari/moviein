@@ -56,6 +56,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['curiosidades'] = 'Curiosidades/index';
 $route['curiosidades/get'] = 'Curiosidades/get';
+$route['curiosidades/inserir'] = 'Curiosidades/inserir';
+$route['curiosidades/excluir'] = 'Curiosidades/excluir';
+$route['curiosidades/adicionar'] = 'Curiosidades/adicionar';
 
 $route['usuario/login'] = 'Usuario/login';
 $route['usuario/logout'] = 'Usuario/logout';

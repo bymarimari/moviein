@@ -131,7 +131,51 @@
                 });
              
                 $('.modal').modal();
-                $(".dropdown-button").dropdown();
+                $(".dropdown-button").dropdown(); });
+                
+                  $('.filme_trigger').on('click', function(){
+                    var id_filme = $(this).data('id');
+                    
+                    $.ajax({
+                        url: "<?= base_url(); ?>bancodefilmes/get",
+                        type: 'post',
+                        dataType: 'json',
+                        data: {id: id_filme},
+                        success: function(filme){
+                            
+                            $('#modal_filme .titulo').html(filme.titulo);
+                            $('#modal_filme .descricao').html(filme.descricao);
+                            $('#modal_filme .genero').html(filme.genero);
+                            $('#modal_filme .nota').html("Nota no IMDB: " + filme.nota);
+                            $('#modal_filme .ano').html("Ano de lançamento: " + filme.ano);
+                            $('#modal_filme .adicionar').data('id', filme.id_filme);
+                            $('#modal_filme').modal('open');
+                        }
+                    });
+                });
+                
+                $('.enviar').on('submit', function(e){
+                    e.preventDefault();
+                    
+                    var action = $(this).attr('action');
+                    var dados = new FormData($(this)[0]);
+                    
+                    $.ajax({
+                        url: action,
+                        contentType: false,
+                        processData: false,
+                        method: 'post',
+                        dataType: 'json',
+                        data: dados,
+                        success: function(result){
+                            alert(result.mensagem);
+                            
+                            if (result.tipo == 'ok') {
+                                location.reload();
+                            }
+                        }
+                    });
+                });
         </script>
     </body>
 </html>
