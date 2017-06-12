@@ -30,10 +30,14 @@ class MeusFilmes extends CI_Controller {
 		} else {
 			header('location: '.base_url());
 		}
-
-	}	
-
-		public function excluir()
+	}
+	
+	
+	
+	
+	
+	
+	public function excluir()
 	{
 		if ($this->session->has_userdata('usuario')) {
 
