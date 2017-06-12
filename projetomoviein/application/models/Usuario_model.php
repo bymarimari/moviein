@@ -21,7 +21,8 @@ class Usuario_model extends CI_Model{
         }
     }
     public function get($id){
-         return $this->db->get_where('usuario', array('id_usuario' => $id))->row();
+         $this->UsuarioDAO->find($id);
+         return $this->UsuarioDAO->get();
     }
     
     public function autentica($email, $senha){
